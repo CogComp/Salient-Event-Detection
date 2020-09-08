@@ -40,7 +40,7 @@ for key in pred_dict:
     except:
         print("ERROR", key)
 
-        outp_pred = open('/shared/djjindal/CEE-data/test_set/'+args.out, 'w')
+        outp_pred = open('/shared/djjindal/CEE-data/test_set/' + args.out, 'w')
         outp_pred.write(json.dumps(out_dict))
         outp_pred.write("\n")
         outp_pred.close()

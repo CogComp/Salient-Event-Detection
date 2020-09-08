@@ -4,7 +4,7 @@ class Eval:
     def p_at_uniq_k(self, event, score, label):
         h_p = {}
         l_d_b = list(zip(score, label, event))
-        l_d_b = sorted(l_d_b, key=lambda item: item[2]) #Sort by event
+        l_d_b = sorted(l_d_b, key = lambda item: item[2]) #Sort by event
         l_score, l_label, l_event = [], [], []
         old, oldmax = None, -1000
         c = -1
@@ -15,13 +15,13 @@ class Eval:
                 l_event.append(e)
                 old = e
                 oldmax = s
-                c+=1
-            elif(s>oldmax):
+                c += 1 
+            elif(s > oldmax):
                 l_score[c] = s
                 oldmax = s        
 
         l_d = list(zip(l_score, l_label))
-        l_d = sorted(l_d, key=lambda item: -item[0]) #Sort by score
+        l_d = sorted(l_d, key = lambda item: -item[0]) #Sort by score
         correct = 0
         for p in range(max(self.l_depth)):
             label = 0
@@ -49,13 +49,13 @@ class Eval:
                 l_event.append(e)
                 old = e
                 oldmax = s
-                c+=1
+                c += 1
             elif(s>oldmax):
                 l_score[c] = s
                 oldmax = s        
 
         l_d = list(zip(l_score, l_label))
-        l_d = sorted(l_d, key=lambda item: -item[0]) #Sort by score
+        l_d = sorted(l_d, key = lambda item: -item[0]) #Sort by score
         correct = 0
         total_z = max(1, sum([max(0, min(label, 1)) for label in l_label]))
         for p in range(max(self.l_depth)):
@@ -73,7 +73,7 @@ class Eval:
     def p_at_k(self, l_score, l_label):
         h_p = {}
         l_d = list(zip(l_score, l_label))
-        l_d = sorted(l_d, key=lambda item: -item[0])
+        l_d = sorted(l_d, key = lambda item: -item[0])
         correct = 0
         for p in range(max(self.l_depth)):
             label = 0
@@ -90,7 +90,7 @@ class Eval:
     def r_at_k(self, l_score, l_label):
         h_r = {}
         l_d = list(zip(l_score, l_label))
-        l_d = sorted(l_d, key=lambda item: -item[0])
+        l_d = sorted(l_d, key = lambda item: -item[0])
         correct = 0
         total_z = max(1, sum([max(0, min(label, 1).item()) for label in l_label]))
         for p in range(max(self.l_depth)):

@@ -81,7 +81,7 @@ logger = TensorBoardLogger("../tb_logs", name=args.model_type, version=args.save
 for modelrelpath in [item for item in args.model_to_test.split(',')]:
     modelpath = '/shared/djjindal/IIE/trainedmodels/' + modelrelpath
     print("\nLoading Model...", modelpath, "\n")
-    model = LitNet.load_from_checkpoint(modelpath, eval_obj=Eval(), args=args, mode = args.model_type)
+    model = LitNet.load_from_checkpoint(modelpath, eval_obj=Eval(), args=args, mode=args.model_type)
     trainer = Trainer(gpus = [int(item) for item in args.gpus.split(',')], 
                       min_epochs = 1, 
                       max_epochs = args.epochs, 

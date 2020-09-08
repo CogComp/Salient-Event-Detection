@@ -15,9 +15,6 @@ class MemoryModule(nn.Module): # Takes Document sentences, question and prev_mem
         self.W_mem = nn.Linear(3*hidden_size, hidden_size)
         self.dropout = nn.Dropout(0.2)
         self.initialize()
-#         torch.nn.init.xavier_normal_(self.W1.state_dict()['weight'])
-#         torch.nn.init.xavier_normal_(self.W2.state_dict()['weight'])
-#         torch.nn.init.xavier_normal_(self.W_mem.state_dict()['weight'])
     
     def initialize(self):
         nn.init.xavier_uniform_(self.W1.weight.data)
@@ -74,8 +71,6 @@ class EpisodicMemoryModule(nn.Module):
         M = Q
         attns = []
         for passes in range(self.num_passes):
-#             print("Pass: ", passes)
-#             print(M.flatten()[:10])#, Q.flatten()[:10])
             M, G = self.memory(D, Q, M)
             attns.append(G)
         return M, attns

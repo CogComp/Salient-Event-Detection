@@ -13,12 +13,7 @@ class AttnGRUCell(nn.Module):
         self.Ur = nn.Linear(hidden_size, hidden_size)
         self.W = nn.Linear(input_size, hidden_size)
         self.U = nn.Linear(hidden_size, hidden_size)
-
         self.initialize()
-#         torch.nn.init.xavier_normal_(self.Wr.state_dict()['weight'])
-#         torch.nn.init.xavier_normal_(self.Ur.state_dict()['weight'])
-#         torch.nn.init.xavier_normal_(self.W.state_dict()['weight'])
-#         torch.nn.init.xavier_normal_(self.U.state_dict()['weight'])
         
     def initialize(self):
         nn.init.xavier_uniform_(self.Wr.weight.data)

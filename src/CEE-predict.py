@@ -127,7 +127,7 @@ def predict(file_name, out_filename, fname, model, device, bs=1):
 
 start = datetime.now()
 print("\nLoading Model...\n")
-model = LitNet.load_from_checkpoint('/shared/djjindal/IIE/trainedmodels/' + args.model_to_test, eval_obj=Eval(), args=args, mode = args.model_type)
+model = LitNet.load_from_checkpoint('/shared/djjindal/IIE/trainedmodels/' + args.model_to_test, eval_obj=Eval(), args=args, mode=args.model_type)
 dev = torch.device("cuda:"+args.gpus)
 predict('/shared/djjindal/ASD/data/full/test_parts_v3_srl/', '/shared/djjindal/ASD/data/full/preds/' + args.out_file, 'supfull_annotated', model.to(dev), dev)
 end = datetime.now()

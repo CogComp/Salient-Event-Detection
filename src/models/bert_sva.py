@@ -29,12 +29,6 @@ class SelfVotingAttnModel(nn.Module):
             self.proj_key = nn.Linear(2*768 + back_emb, self.d)
             self.proj_query = nn.Linear(2*768 + back_emb, self.d)
         else:
-#             self.lin1 = nn.Linear(768 + back_emb, 4*self.d)
-#             self.rel1 = nn.ReLU()
-#             self.lin2 = nn.Linear(4*self.d, 2*self.d)
-#             self.rel2 = nn.ReLU()
-#             self.proj_key = nn.Linear(2*self.d, self.d)
-#             self.proj_query = nn.Linear(2*self.d, self.d)
             self.proj_key = nn.Linear(768 + back_emb, self.d)
             self.proj_query = nn.Linear(768 + back_emb, self.d)
         self.initialize()
@@ -101,7 +95,6 @@ class SelfVotingAttnModel(nn.Module):
             else:
                 features = torch.cat((features, fcorref), dim=2)
         return features       
-        
         
     '''
         Input: B*b*512, B*b*512, -, -, B*N*2, B*N*x
