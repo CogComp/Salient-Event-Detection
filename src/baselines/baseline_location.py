@@ -32,9 +32,9 @@ parser.add_argument('-steps_test', '--test_steps', type=int, default=192, help='
 parser.add_argument('-w_train', '--num_workers_train', type=int, default=2, help='Number of workers to load training data')
 parser.add_argument('-w_val', '--num_workers_val', type=int, default=2, help='Number of workers to load validation data')
 parser.add_argument('-w_test', '--num_workers_test', type=int, default=2, help='Number of workers to load test data')
-parser.add_argument('--train_data_path', default='/shared/djjindal/ASD/data/full/train_parts_v3_srl/', help='Train Data Path')
-parser.add_argument('--val_data_path', default='/shared/djjindal/ASD/data/full/val_parts_v3_srl/', help='Validation Data Path')
-parser.add_argument('--test_data_path', default='/shared/djjindal/ASD/data/full/test_parts_v3_srl/', help='Test Data Path')
+parser.add_argument('--train_data_path', default='CEE-data/train_set/', help='Train Data Path')
+parser.add_argument('--val_data_path', default='CEE-data/val_set/', help='Validation Data Path')
+parser.add_argument('--test_data_path', default='CEE-data/test_set/', help='Test Data Path')
 
 # Parse Arguments
 args = parser.parse_args()
@@ -85,6 +85,6 @@ def predict(file_name, out_filename, fname, device, bs=1):
     outfile.close()
 
 start = datetime.now()
-predict('/shared/djjindal/CEE-data/test_set/', '/shared/djjindal/CEE-data/predictions/' + args.out_file, 'full_test_data.json', torch.device("cuda:"+args.gpus))
+predict('CEE-data/test_set/', 'CEE-data/predictions/' + args.out_file, 'full_test_data.json', torch.device("cuda:"+args.gpus))
 end = datetime.now()
 print((end-start).total_seconds())
