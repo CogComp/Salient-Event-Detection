@@ -1,6 +1,6 @@
 import json
 import numpy as np
-from eval.metrics import Eval
+from metrics import Eval
 import sys
 import argparse
 
@@ -42,8 +42,8 @@ for key in pred_dict:
     except:
         print("ERROR", key)
 
-        outp_pred = open(args.out, 'w')
-        outp_pred.write(json.dumps(out_dict))
-        outp_pred.write("\n")
-        outp_pred.close()
-        inp_pred.close()
+outp_pred = open(args.out, 'w')
+outp_pred.write(json.dumps(out_dict))
+outp_pred.write("\n")
+outp_pred.close()
+inp_pred.close()

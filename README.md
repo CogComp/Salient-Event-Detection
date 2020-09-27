@@ -48,6 +48,10 @@ We process this dataset, perform initial filtering (filter the documents with mi
   
   Replace ``path_to_the_saved_model``, ``output_filename``, ``test_file_dir_path`` and ``test_filename`` appropriately.
 
+  1. To get Precision and Recall as per the new methodology, run:
+  
+  ``python eval/calculate_unique_pr.py -inp output_filename_from_above_step -out new_output_filename -input_doc_dir folder_name``
+
 ## Results
 
 This [folder](https://github.com/DishaJindal/Salient-Event-Detection/tree/master/results) contains the document wise predictions of all models on the test set. 
