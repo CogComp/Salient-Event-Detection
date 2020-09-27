@@ -4,20 +4,22 @@ from eval.metrics import Eval
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description='Update unique..')
-parser.add_argument('-inp', type=str)
-parser.add_argument('-out', type=str)
+parser = argparse.ArgumentParser(description='Augment predictions with unique precision/recall metrics')
+parser.add_argument('-inp', type=str, default='predictions/out.json', help='Predictions file, an output of CEE-predict')
+parser.add_argument('-out', type=str, default='predictions/out_uniq.json', help='Output file')
+parser.add_argument('-input_doc_dir', type=str, default='CEE-data/test_set/docs/', help='Directory containing input documents')
+
 # Parse Arguments
 args = parser.parse_args()
 
-eval_obj=Eval()
-inp_pred = open('/shared/djjindal/CEE-data/test_set/' + args.inp, 'r')
+eval_obj = Eval()
+inp_pred = open(args.inp, 'r')
 out_dict = dict()
 pred_dict = json.load(inp_pred)
 
 for key in pred_dict:
     try:
-        path = '/shared/djjindal/CEE-data/test_set/' + str(key)+'.txt'
+        path = args.input_doc_dir + str(key)+'.txt'
         doc = json.loads(open(path, 'r').read())
         outp = pred_dict[key]
         scoree = outp['output']
@@ -40,7 +42,7 @@ for key in pred_dict:
     except:
         print("ERROR", key)
 
-        outp_pred = open('/shared/djjindal/CEE-data/test_set/' + args.out, 'w')
+        outp_pred = open(args.out, 'w')
         outp_pred.write(json.dumps(out_dict))
         outp_pred.write("\n")
         outp_pred.close()
