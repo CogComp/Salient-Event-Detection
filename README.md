@@ -10,7 +10,7 @@ Identifying the key events in a document is critical to holistically understandi
 ## Data
 The raw dataset used in this work is [Annotated NYT](https://catalog.ldc.upenn.edu/LDC2008T19). This dataset is distributed by LDC and due to the licence restrictions, we can not release the raw data. 
 
-We process this dataset, perform initial filtering (filter the documents with missing fields or If there are no salient events) and extract features and labels. [Here](https://github.com/DishaJindal/Salient-Event-Detection/tree/master/data) is the train/test split of the final set of documents. Following are the links to the processed datasets. Fill in the *bodyText* and *abstract* fields (left empty) after obtaining the raw dataset from LDC.
+We process this dataset, perform initial filtering (filter the documents with missing fields or If there are no salient events) and extract features and labels. [Here](./data) is the train/test split of the final set of documents. Following are the links to the processed datasets. Fill in the *bodyText* and *abstract* fields (left empty) after obtaining the raw dataset from LDC.
 
 [Training set](TODO)
 
