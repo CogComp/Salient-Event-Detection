@@ -26,7 +26,7 @@ We process this dataset, perform initial filtering (filter the documents with mi
 
 `` conda activate sed_env``
 
-- Install dependencies using [this](https://github.com/DishaJindal/Salient-Event-Detection/blob/master/requirements.txt) file, it will take around ~ 4G.
+- Install dependencies using [this](https://github.com/CogComp/Salient-Event-Detection/blob/master/requirements.txt) file, it will take around ~ 4G.
 
 ``pip install -r requirements.txt``
 
