@@ -12,9 +12,9 @@ The raw dataset used in this work is [Annotated NYT](https://catalog.ldc.upenn.e
 
 We process this dataset, perform initial filtering (filter the documents with missing fields or If there are no salient events) and extract features and labels. [Here](./data) is the train/test split of the final set of documents. Following are the links to the processed datasets. Fill in the *bodyText* and *abstract* fields (left empty) after obtaining the raw dataset from LDC.
 
-[Training set](TODO)
+[Training set](https://drive.google.com/file/d/1Q2L7t7_JnBXvd0my3d129Pq9yYKw-Oqi/view?usp=sharing)
 
-[Test set](TODO)
+[Test set](https://drive.google.com/file/d/1xDCRGadAXlpheCCizWWIkSfAr30TKZgw/view?usp=sharing)
 
 ### Setup
 
